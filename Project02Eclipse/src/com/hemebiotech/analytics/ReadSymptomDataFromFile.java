@@ -11,13 +11,14 @@ import java.util.List;
  * Simple brute force implementation
  *
  */
-public class ReadSymptomDataFromFile  {
+public class ReadSymptomDataFromFile {
 
 //	private String filepath;
-	
+
 	/**
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * @param filepath a full or partial path to file with symptom strings in it,
+	 *                 one per line
 	 */
 //	public ReadSymptomDataFromFile (String filepath) {
 //		this.filepath = filepath;
@@ -44,13 +45,15 @@ public class ReadSymptomDataFromFile  {
 //		
 //		return result;
 //	}
-	
+
 	static int headacheCount = 0;
 	static int rashCount = 0;
-	static int pupilCount = 0;	
+	static int pupilCount = 0;
+
 	// ********* Create a method for reading input file********
 	static void getSymptoms() throws FileNotFoundException, IOException {
-		BufferedReader reader = new BufferedReader(new FileReader(FileInputAndOutputSourceDefinition.getDataInputFileName()));
+		BufferedReader reader = new BufferedReader(
+				new FileReader(FileInputAndOutputSourceDefinition.getDataInputFileName()));
 		String line = reader.readLine();
 
 		// ********* Method for computation********
