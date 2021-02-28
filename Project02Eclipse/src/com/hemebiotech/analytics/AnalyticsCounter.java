@@ -15,12 +15,11 @@ public class AnalyticsCounter {
 		String line = reader.readLine();
 
 
-		int headCount = 0;
+
 		while (line != null) {
-			System.out.println("symptom from file: " + line);
+//			System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
+				headacheCount++;
 			}
 			else if (line.equals("rush")) {
 				rashCount++;
@@ -31,6 +30,9 @@ public class AnalyticsCounter {
 
 			line = reader.readLine();
 		}
+		System.out.println("number of headaches: " + headacheCount);
+		System.out.println("number of rash: " + headacheCount);
+		System.out.println("number of pupils: " + headacheCount);
 		reader.close();
 
 		FileWriter writer = new FileWriter ("result.out");
