@@ -14,8 +14,11 @@ public class AnalyticsCounter {
 	public static void main(String[] args) throws Exception {
 
 		getSymptoms();
-		
-		// ********* Create a method for Result Output management********
+		generateOutputResults();
+	}
+
+	// ********* Create a method for Result Output management********
+	private static void generateOutputResults() throws IOException {
 		FileWriter writer = new FileWriter(getDataOutputFileName());
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
@@ -52,6 +55,7 @@ public class AnalyticsCounter {
 			line = reader.readLine();
 		}
 	}
+
 	// ********* Create a method for input and output file management********
 	private static String getDataOutputFileName() {
 		String sourceOutputDataFile = "result.out";
