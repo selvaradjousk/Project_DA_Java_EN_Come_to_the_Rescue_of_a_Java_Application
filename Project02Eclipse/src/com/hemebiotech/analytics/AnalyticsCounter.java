@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,18 +13,8 @@ public class AnalyticsCounter {
 
 	public static void main(String[] args) throws Exception {
 
-		// ********* Create a method for input and output file management********
-		// ********* Create a method for reading input file********
-		BufferedReader reader = new BufferedReader(new FileReader(getDataInputFileName()));
-		String line = reader.readLine();
-
-		// ********* Create a method for computation********
-		calculatingSymptomOccurenceFrequencyData(reader, line);
-
-		System.out.println("number of headaches: " + headacheCount);
-		System.out.println("number of rash: " + rashCount);
-		System.out.println("number of pupils: " + pupilCount);
-		reader.close();
+		getSymptoms();
+		
 		// ********* Create a method for Result Output management********
 		FileWriter writer = new FileWriter(getDataOutputFileName());
 		writer.write("headache: " + headacheCount + "\n");
@@ -32,6 +23,21 @@ public class AnalyticsCounter {
 		writer.close();
 	}
 
+	// ********* Create a method for reading input file********
+	private static void getSymptoms() throws FileNotFoundException, IOException {
+		BufferedReader reader = new BufferedReader(new FileReader(getDataInputFileName()));
+		String line = reader.readLine();
+
+		// ********* Method for computation********
+		calculatingSymptomOccurenceFrequencyData(reader, line);
+
+		System.out.println("number of headaches: " + headacheCount);
+		System.out.println("number of rash: " + rashCount);
+		System.out.println("number of pupils: " + pupilCount);
+		reader.close();
+	}
+
+	// ********* Create a method for computation********
 	private static void calculatingSymptomOccurenceFrequencyData(BufferedReader reader, String line)
 			throws IOException {
 		while (line != null) {
@@ -46,7 +52,7 @@ public class AnalyticsCounter {
 			line = reader.readLine();
 		}
 	}
-
+	// ********* Create a method for input and output file management********
 	private static String getDataOutputFileName() {
 		String sourceOutputDataFile = "result.out";
 		return sourceOutputDataFile;
