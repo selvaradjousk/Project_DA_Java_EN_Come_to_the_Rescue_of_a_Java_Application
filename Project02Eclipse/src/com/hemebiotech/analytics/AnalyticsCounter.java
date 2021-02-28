@@ -8,11 +8,14 @@ public class AnalyticsCounter {
 	private static int headacheCount = 0;
 	private static int rashCount = 0;
 	private static int pupilCount = 0;
+	
 
 	public static void main(String[] args) throws Exception {
+		String sourceOutputDataFile = "result.out";
+		
 		// ********* Create a method for input and output file management********
 		// ********* Create a method for reading input file********
-		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
+		BufferedReader reader = new BufferedReader(new FileReader(getDataInputFileName()));
 		String line = reader.readLine();
 
 		// ********* Create a method for computation********
@@ -32,10 +35,16 @@ public class AnalyticsCounter {
 		System.out.println("number of pupils: " + pupilCount);
 		reader.close();
 		// ********* Create a method for Result Output management********
-		FileWriter writer = new FileWriter("result.out");
+		FileWriter writer = new FileWriter(sourceOutputDataFile);
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
+	}
+
+
+	private static String getDataInputFileName() {
+		String sourceInputDataFile = "symptoms.txt";
+		return sourceInputDataFile;
 	}
 }
