@@ -3,6 +3,7 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class AnalyticsCounter {
 	private static int headacheCount = 0;
@@ -17,6 +18,22 @@ public class AnalyticsCounter {
 		String line = reader.readLine();
 
 		// ********* Create a method for computation********
+		calculatingSymptomOccurenceFrequencyData(reader, line);
+
+		System.out.println("number of headaches: " + headacheCount);
+		System.out.println("number of rash: " + rashCount);
+		System.out.println("number of pupils: " + pupilCount);
+		reader.close();
+		// ********* Create a method for Result Output management********
+		FileWriter writer = new FileWriter(getDataOutputFileName());
+		writer.write("headache: " + headacheCount + "\n");
+		writer.write("rash: " + rashCount + "\n");
+		writer.write("dialated pupils: " + pupilCount + "\n");
+		writer.close();
+	}
+
+	private static void calculatingSymptomOccurenceFrequencyData(BufferedReader reader, String line)
+			throws IOException {
 		while (line != null) {
 			if (line.equals("headache")) {
 				headacheCount++;
@@ -28,16 +45,6 @@ public class AnalyticsCounter {
 
 			line = reader.readLine();
 		}
-		System.out.println("number of headaches: " + headacheCount);
-		System.out.println("number of rash: " + rashCount);
-		System.out.println("number of pupils: " + pupilCount);
-		reader.close();
-		// ********* Create a method for Result Output management********
-		FileWriter writer = new FileWriter(getDataOutputFileName());
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
 	}
 
 	private static String getDataOutputFileName() {
