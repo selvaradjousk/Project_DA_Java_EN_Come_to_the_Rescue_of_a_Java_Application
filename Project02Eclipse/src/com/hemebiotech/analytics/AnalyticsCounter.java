@@ -21,18 +21,18 @@ public class AnalyticsCounter {
 			if (line.equals("headache")) {
 				headacheCount++;
 			}
-			else if (line.equals("rush")) {
+			else if (line.equals("rash")) {
 				rashCount++;
 			}
-			else if (line.contains("pupils")) {
+			else if (line.contains("dialated pupils")) {
 				pupilCount++;
 			}
 
 			line = reader.readLine();
 		}
 		System.out.println("number of headaches: " + headacheCount);
-		System.out.println("number of rash: " + headacheCount);
-		System.out.println("number of pupils: " + headacheCount);
+		System.out.println("number of rash: " + rashCount);
+		System.out.println("number of pupils: " + pupilCount);
 		reader.close();
 
 		FileWriter writer = new FileWriter ("result.out");
