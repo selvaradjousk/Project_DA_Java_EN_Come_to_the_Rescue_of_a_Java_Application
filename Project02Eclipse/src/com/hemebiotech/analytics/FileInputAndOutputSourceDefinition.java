@@ -8,7 +8,7 @@ public class FileInputAndOutputSourceDefinition {
 		return sourceOutputDataFile;
 	}
 
-	static String getDataInputFileName() {
+		static String getDataInputFileName() {
 		String sourceInputDataFile = "symptoms.txt";
 		return sourceInputDataFile;
 	}
