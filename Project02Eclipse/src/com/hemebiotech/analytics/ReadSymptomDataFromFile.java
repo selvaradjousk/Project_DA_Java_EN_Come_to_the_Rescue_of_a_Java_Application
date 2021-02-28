@@ -49,12 +49,12 @@ public class ReadSymptomDataFromFile  {
 	static int rashCount = 0;
 	static int pupilCount = 0;	
 	// ********* Create a method for reading input file********
-	private static void getSymptoms() throws FileNotFoundException, IOException {
+	static void getSymptoms() throws FileNotFoundException, IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(FileInputAndOutputSourceDefinition.getDataInputFileName()));
 		String line = reader.readLine();
 
 		// ********* Method for computation********
-		AnalyticsCounter.calculatingSymptomOccurenceFrequencyData(reader, line);
+		ComputingSymptomsAnalytics.calculatingSymptomOccurenceFrequencyData(reader, line);
 
 		System.out.println("number of headaches: " + headacheCount);
 		System.out.println("number of rash: " + rashCount);

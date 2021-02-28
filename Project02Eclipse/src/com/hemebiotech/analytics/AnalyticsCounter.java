@@ -10,7 +10,7 @@ public class AnalyticsCounter {
 
 	public static void main(String[] args) throws Exception {
 
-		getSymptoms();
+		ReadSymptomDataFromFile.getSymptoms();
 		generateOutputResults();
 	}
 
@@ -23,35 +23,7 @@ public class AnalyticsCounter {
 		writer.close();
 	}
 
-	// ********* Create a method for reading input file********
-	private static void getSymptoms() throws FileNotFoundException, IOException {
-		BufferedReader reader = new BufferedReader(new FileReader(FileInputAndOutputSourceDefinition.getDataInputFileName()));
-		String line = reader.readLine();
 
-		// ********* Method for computation********
-		calculatingSymptomOccurenceFrequencyData(reader, line);
-
-		System.out.println("number of headaches: " + ReadSymptomDataFromFile.headacheCount);
-		System.out.println("number of rash: " + ReadSymptomDataFromFile.rashCount);
-		System.out.println("number of pupils: " + ReadSymptomDataFromFile.pupilCount);
-		reader.close();
-	}
-
-	// ********* Create a method for computation********
-	static void calculatingSymptomOccurenceFrequencyData(BufferedReader reader, String line)
-			throws IOException {
-		while (line != null) {
-			if (line.equals("headache")) {
-				ReadSymptomDataFromFile.headacheCount++;
-			} else if (line.equals("rash")) {
-				ReadSymptomDataFromFile.rashCount++;
-			} else if (line.contains("dialated pupils")) {
-				ReadSymptomDataFromFile.pupilCount++;
-			}
-
-			line = reader.readLine();
-		}
-	}
 
 
 }
