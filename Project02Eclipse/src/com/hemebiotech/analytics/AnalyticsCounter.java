@@ -5,11 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 public class AnalyticsCounter {
-	private static int headacheCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
+
 
 	public static void main(String[] args) throws Exception {
 
@@ -20,9 +17,9 @@ public class AnalyticsCounter {
 	// ********* Create a method for Result Output management********
 	private static void generateOutputResults() throws IOException {
 		FileWriter writer = new FileWriter(FileInputAndOutputSourceDefinition.getDataOutputFileName());
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
+		writer.write("headache: " + ReadSymptomDataFromFile.headacheCount + "\n");
+		writer.write("rash: " + ReadSymptomDataFromFile.rashCount + "\n");
+		writer.write("dialated pupils: " + ReadSymptomDataFromFile.pupilCount + "\n");
 		writer.close();
 	}
 
@@ -34,22 +31,22 @@ public class AnalyticsCounter {
 		// ********* Method for computation********
 		calculatingSymptomOccurenceFrequencyData(reader, line);
 
-		System.out.println("number of headaches: " + headacheCount);
-		System.out.println("number of rash: " + rashCount);
-		System.out.println("number of pupils: " + pupilCount);
+		System.out.println("number of headaches: " + ReadSymptomDataFromFile.headacheCount);
+		System.out.println("number of rash: " + ReadSymptomDataFromFile.rashCount);
+		System.out.println("number of pupils: " + ReadSymptomDataFromFile.pupilCount);
 		reader.close();
 	}
 
 	// ********* Create a method for computation********
-	private static void calculatingSymptomOccurenceFrequencyData(BufferedReader reader, String line)
+	static void calculatingSymptomOccurenceFrequencyData(BufferedReader reader, String line)
 			throws IOException {
 		while (line != null) {
 			if (line.equals("headache")) {
-				headacheCount++;
+				ReadSymptomDataFromFile.headacheCount++;
 			} else if (line.equals("rash")) {
-				rashCount++;
+				ReadSymptomDataFromFile.rashCount++;
 			} else if (line.contains("dialated pupils")) {
-				pupilCount++;
+				ReadSymptomDataFromFile.pupilCount++;
 			}
 
 			line = reader.readLine();
