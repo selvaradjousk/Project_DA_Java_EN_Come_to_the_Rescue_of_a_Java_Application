@@ -8,23 +8,20 @@ public class AnalyticsCounter {
 	private static int headacheCount = 0;
 	private static int rashCount = 0;
 	private static int pupilCount = 0;
-	
-	public static void main(String[] args) throws Exception {
 
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+	public static void main(String[] args) throws Exception {
+		// ********* Create a method for input and output file management********
+		// ********* Create a method for reading input file********
+		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
-
-
+		// ********* Create a method for computation********
 		while (line != null) {
-//			System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
 				headacheCount++;
-			}
-			else if (line.equals("rash")) {
+			} else if (line.equals("rash")) {
 				rashCount++;
-			}
-			else if (line.contains("dialated pupils")) {
+			} else if (line.contains("dialated pupils")) {
 				pupilCount++;
 			}
 
@@ -34,8 +31,8 @@ public class AnalyticsCounter {
 		System.out.println("number of rash: " + rashCount);
 		System.out.println("number of pupils: " + pupilCount);
 		reader.close();
-
-		FileWriter writer = new FileWriter ("result.out");
+		// ********* Create a method for Result Output management********
+		FileWriter writer = new FileWriter("result.out");
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
