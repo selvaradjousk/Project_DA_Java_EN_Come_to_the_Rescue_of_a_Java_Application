@@ -19,7 +19,7 @@ public class AnalyticsCounter {
 
 	// ********* Create a method for Result Output management********
 	private static void generateOutputResults() throws IOException {
-		FileWriter writer = new FileWriter(getDataOutputFileName());
+		FileWriter writer = new FileWriter(FileInputAndOutputSourceDefinition.getDataOutputFileName());
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
@@ -28,7 +28,7 @@ public class AnalyticsCounter {
 
 	// ********* Create a method for reading input file********
 	private static void getSymptoms() throws FileNotFoundException, IOException {
-		BufferedReader reader = new BufferedReader(new FileReader(getDataInputFileName()));
+		BufferedReader reader = new BufferedReader(new FileReader(FileInputAndOutputSourceDefinition.getDataInputFileName()));
 		String line = reader.readLine();
 
 		// ********* Method for computation********
@@ -56,14 +56,5 @@ public class AnalyticsCounter {
 		}
 	}
 
-	// ********* Create a method for input and output file management********
-	private static String getDataOutputFileName() {
-		String sourceOutputDataFile = "result.out";
-		return sourceOutputDataFile;
-	}
 
-	private static String getDataInputFileName() {
-		String sourceInputDataFile = "symptoms.txt";
-		return sourceInputDataFile;
-	}
 }
