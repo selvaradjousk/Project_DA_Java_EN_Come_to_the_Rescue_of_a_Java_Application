@@ -5,18 +5,17 @@ import java.io.IOException;
 
 public class ComputingSymptomsAnalytics {
 	// ********* Create a method for computation********
-	static void calculatingSymptomOccurenceFrequencyData(BufferedReader reader, String line)
-			throws IOException {
-		while (line != null) {
-			if (line.equals("headache")) {
+	static void calculatingSymptomOccurenceFrequencyData(BufferedReader reader, String symptoms) throws IOException {
+		while (symptoms != null) {
+			if (symptoms.equals("headache")) {
 				ReadSymptomDataFromFile.headacheCount++;
-			} else if (line.equals("rash")) {
+			} else if (symptoms.equals("rash")) {
 				ReadSymptomDataFromFile.rashCount++;
-			} else if (line.contains("dialated pupils")) {
+			} else if (symptoms.contains("dialated pupils")) {
 				ReadSymptomDataFromFile.pupilCount++;
 			}
 
-			line = reader.readLine();
+			symptoms = reader.readLine();
 		}
 	}
 
