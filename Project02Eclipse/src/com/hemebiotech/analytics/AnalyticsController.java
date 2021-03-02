@@ -5,21 +5,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-
-
 /**
- * AnalyticsController is the main Class for the "Heme Biotech - Trend Analysis Java App"
- * This contains the Following class files to be called to perform the function of the App
+ * AnalyticsController is the main Class for the "Heme Biotech - Trend Analysis
+ * Java App" This contains the Following class files to be called to perform the
+ * function of the App
  * 
- * FileInputAndOutputSourceDefinition Class - Stores and provides the input and output file definition
+ * AnalyticsCounter Class that coordinates the functions from different classes
+ * in a centralized manner
  * 
- * ReadSymptomDataFromFile Class - Reads and loads the input data on symptoms into ArrayList
+ * FileInputAndOutputSourceDefinition Class - Stores and provides the input and
+ * output file definition
+ * 
+ * ReadSymptomDataFromFile Class - Reads and loads the input data on symptoms
+ * into ArrayList
  * 
  * ISymptomReader Interface Class - Interface file for data loading structure
  * 
- * ComputingSymptomsAnalytics Class - Performs computation of the count of occurences of the symptoms listed
- *  * 
- * GenerateOutputReportFile Class - Generates the output file with count of occurences corresponding to the symptoms listed
+ * ComputingSymptomsAnalytics Class - Performs computation of the count of
+ * occurences of the symptoms listed
+ * 
+ * GenerateOutputReportFile Class - Generates the output file with count of
+ * occurences corresponding to the symptoms listed
  * 
  * 
  * @author Senthil
@@ -28,15 +34,16 @@ import java.util.TreeMap;
 public class AnalyticsController {
 
 	/**
-	 * Main function of the AnalyticsController for the "Heme Biotech - Trend Analysis Java App"
+	 * Main function of the AnalyticsController for the "Heme Biotech - Trend
+	 * Analysis Java App"
 	 * 
 	 * listedSymptomOccurenceInSourceData - ArrayList Definition
-	 * loadingSymptomsIntoMap - TreeMap definition
-	 * readSymptomDataFromFile - instance of ReadSymptomDataFromFile() function 
-	 * calling input parameter FileInputAndOutputSourceDefinition.getDataInputFileName() into it
+	 * loadingSymptomsIntoMap - TreeMap definition readSymptomDataFromFile -
+	 * instance of ReadSymptomDataFromFile() function calling input parameter
+	 * FileInputAndOutputSourceDefinition.getDataInputFileName() into it
 	 * 
 	 * @param args
-	 * @throws Exception
+	 * @throws Exception @SuppressWarnings("static-access")
 	 */
 
 	@SuppressWarnings("static-access")
@@ -46,23 +53,7 @@ public class AnalyticsController {
 		analyticsCounter.readInputFile();
 		analyticsCounter.symptomOccurenceCount();
 		analyticsCounter.sendResultToOutputFile();
-		
-		
-		
-		
-//		List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
-//		
-//		Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
-//		
-//		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
-//				FileInputAndOutputSourceDefinition.getDataInputFileName());
-//		
-//		listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
-//		
-//		loadingSymptomsIntoMap = ComputingSymptomsAnalytics.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
-//		
-//		GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
-//		
+
 	}
 
 }
