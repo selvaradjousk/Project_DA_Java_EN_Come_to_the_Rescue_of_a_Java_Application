@@ -8,9 +8,9 @@ import java.util.TreeMap;
 public class AnalyticsCounter {
 
 	
-	List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
+	static List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
 	
-	Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
+	static Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
 	
 	ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
 			FileInputAndOutputSourceDefinition.getDataInputFileName());
