@@ -39,8 +39,17 @@ public class AnalyticsController {
 	 * @throws Exception
 	 */
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) throws Exception {
 
+		AnalyticsCounter analyticsCounter = new AnalyticsCounter();
+		analyticsCounter.readInputFile();
+		analyticsCounter.symptomOccurenceCount();
+		analyticsCounter.sendResultToOutputFile();
+		
+		
+		
+		
 //		List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
 //		
 //		Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
