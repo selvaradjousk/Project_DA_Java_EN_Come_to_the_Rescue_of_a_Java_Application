@@ -18,9 +18,9 @@ public class AnalyticsCounter {
 		listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
 	}
 	
-	listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
-	
+	public static void symptomOccurenceCount() {	
 	loadingSymptomsIntoMap = ComputingSymptomsAnalytics.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
+	}
 	
 	GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
 	
