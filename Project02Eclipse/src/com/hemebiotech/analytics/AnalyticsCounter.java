@@ -1,59 +1,52 @@
 package com.hemebiotech.analytics;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-
-
-/**
- * AnalyticsCounter is the main Class for the "Heme Biotech - Trend Analysis Java App"
- * This contains the Following class files to be called to perform the function of the App
- * 
- * FileInputAndOutputSourceDefinition Class - Stores and provides the input and output file definition
- * 
- * ReadSymptomDataFromFile Class - Reads and loads the input data on symptoms into ArrayList
- * 
- * ISymptomReader Interface Class - Interface file for data loading structure
- * 
- * ComputingSymptomsAnalytics Class - Performs computation of the count of occurences of the symptoms listed
- *  * 
- * GenerateOutputReportFile Class - Generates the output file with count of occurences corresponding to the symptoms listed
- * 
- * 
- * @author Senthil
- *
- */
 public class AnalyticsCounter {
 
+	static List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
+
+	static Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
+
 	/**
-	 * Main function of the AnalyticsCounter for the "Heme Biotech - Trend Analysis Java App"
-	 * 
-	 * listedSymptomOccurenceInSourceData - ArrayList Definition
-	 * loadingSymptomsIntoMap - TreeMap definition
-	 * readSymptomDataFromFile - instance of ReadSymptomDataFromFile() function 
-	 * calling input parameter FileInputAndOutputSourceDefinition.getDataInputFileName() into it
-	 * 
-	 * @param args
-	 * @throws Exception
+	 * readInputFile() calls the functions that reads the source input file and
+	 * loads the symptoms into array list
 	 */
-
-	public static void main(String[] args) throws Exception {
-
-		List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
-		
-		Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
-		
+	public static void readInputFile() {
 		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
 				FileInputAndOutputSourceDefinition.getDataInputFileName());
-		
 		listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
-		
-		loadingSymptomsIntoMap = ComputingSymptomsAnalytics.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
-		
-		GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
-		
 	}
 
+	/**
+	 * symptomOccurenceCount() used to call the functions for calculating the
+	 * symptoms occurrence frequency and sorting them into TreeMap to provide sorted
+	 * results of the symptoms and its counts
+	 */
+	public static void symptomOccurenceCountAndSorting() {
+		try {
+			loadingSymptomsIntoMap = ComputingSymptomsAnalytics
+					.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * sendResultToOutputFile() used to call the functions to that sends the count
+	 * frequency computed to output file
+	 */
+	public static void sendResultToOutputFile() {
+		try {
+			GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

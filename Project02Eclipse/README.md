@@ -23,9 +23,34 @@ Java development supporting IDE of your choice (Eclipse, Neabeans, intellij..;)
 
 ## Brief Source Code Review
 
-###  Main program is named as AnalyticsCounter
-This main class contains numerous functional classes as below:
+###  Main program is named as AnalyticsController
+This main class contains numerous functional classes wherein the AnalyticsCounter Class that coordinates the functions from different classes in a centralized manner as below:
+#### The instance analyticsCounter of the class AnalyticsCounter
+```java
+		AnalyticsCounter analyticsCounter = new AnalyticsCounter();
+```
+The instance analyticsCounter of the class AnalyticsCounter is created to access the different methods
 
+#### The readInputFile () Method
+```java
+		analyticsCounter.readInputFile();
+```
+This method is used to call the functions for reading the input file and loading into arraylist
+
+#### Method for counting and sorting the symptom count
+```java
+		analyticsCounter.symptomOccurenceCountAndSorting();
+```
+This method is used for calling the functions from different classes to perform the computations and deliver the results into a TreeMap for having a sorted result
+
+#### Method for sending results to output file
+```java
+		analyticsCounter.sendResultToOutputFile();
+```
+The sorted results are delivered into the output file specified in the file definition in the initial phase
+
+
+###  AnalyticsCounter Class coordinates with the other classes as below:
 1. Definition of ArrayList and TreeMap for loading the input source data accessible for computation and render proper structured output:
 ```java
 		List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
