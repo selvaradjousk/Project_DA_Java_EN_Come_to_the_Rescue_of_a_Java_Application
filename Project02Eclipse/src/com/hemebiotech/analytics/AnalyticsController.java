@@ -41,19 +41,19 @@ public class AnalyticsController {
 
 	public static void main(String[] args) throws Exception {
 
-		List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
-		
-		Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
-		
-		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
-				FileInputAndOutputSourceDefinition.getDataInputFileName());
-		
-		listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
-		
-		loadingSymptomsIntoMap = ComputingSymptomsAnalytics.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
-		
-		GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
-		
+//		List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
+//		
+//		Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
+//		
+//		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
+//				FileInputAndOutputSourceDefinition.getDataInputFileName());
+//		
+//		listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
+//		
+//		loadingSymptomsIntoMap = ComputingSymptomsAnalytics.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
+//		
+//		GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
+//		
 	}
 
 }
