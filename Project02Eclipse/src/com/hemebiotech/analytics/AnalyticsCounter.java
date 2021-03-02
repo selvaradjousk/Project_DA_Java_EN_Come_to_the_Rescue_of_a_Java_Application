@@ -12,8 +12,11 @@ public class AnalyticsCounter {
 	
 	static Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
 	
-	ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
-			FileInputAndOutputSourceDefinition.getDataInputFileName());
+	public static void readInputFile() {
+		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
+				FileInputAndOutputSourceDefinition.getDataInputFileName());
+		listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
+	}
 	
 	listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
 	
