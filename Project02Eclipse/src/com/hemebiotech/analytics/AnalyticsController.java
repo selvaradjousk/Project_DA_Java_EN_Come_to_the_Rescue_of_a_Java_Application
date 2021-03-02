@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 
 /**
- * AnalyticsCounter is the main Class for the "Heme Biotech - Trend Analysis Java App"
+ * AnalyticsController is the main Class for the "Heme Biotech - Trend Analysis Java App"
  * This contains the Following class files to be called to perform the function of the App
  * 
  * FileInputAndOutputSourceDefinition Class - Stores and provides the input and output file definition
@@ -25,10 +25,10 @@ import java.util.TreeMap;
  * @author Senthil
  *
  */
-public class AnalyticsCounter {
+public class AnalyticsController {
 
 	/**
-	 * Main function of the AnalyticsCounter for the "Heme Biotech - Trend Analysis Java App"
+	 * Main function of the AnalyticsController for the "Heme Biotech - Trend Analysis Java App"
 	 * 
 	 * listedSymptomOccurenceInSourceData - ArrayList Definition
 	 * loadingSymptomsIntoMap - TreeMap definition
