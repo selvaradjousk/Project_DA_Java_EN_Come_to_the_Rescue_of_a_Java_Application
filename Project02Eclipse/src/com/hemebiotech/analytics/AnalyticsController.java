@@ -1,9 +1,5 @@
 package com.hemebiotech.analytics;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * AnalyticsController is the main Class for the "Heme Biotech - Trend Analysis
@@ -51,7 +47,7 @@ public class AnalyticsController {
 
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter();
 		analyticsCounter.readInputFile();
-		analyticsCounter.symptomOccurenceCount();
+		analyticsCounter.symptomOccurenceCountAndSorting();
 		analyticsCounter.sendResultToOutputFile();
 
 	}

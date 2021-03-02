@@ -27,7 +27,7 @@ public class AnalyticsCounter {
 	 * symptoms occurrence frequency and sorting them into TreeMap to provide sorted
 	 * results of the symptoms and its counts
 	 */
-	public static void symptomOccurenceCount() {
+	public static void symptomOccurenceCountAndSorting() {
 		try {
 			loadingSymptomsIntoMap = ComputingSymptomsAnalytics
 					.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
