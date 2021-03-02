@@ -22,6 +22,7 @@ public class AnalyticsCounter {
 	loadingSymptomsIntoMap = ComputingSymptomsAnalytics.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
 	}
 	
+	public static void sendResultToOutputFile() {
 	GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
-	
+	}
 }
