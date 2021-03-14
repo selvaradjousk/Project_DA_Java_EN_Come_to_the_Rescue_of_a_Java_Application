@@ -39,13 +39,13 @@ This method is used to call the functions for reading the input file and loading
 
 #### Method for counting and sorting the symptom count
 ```java
-		analyticsCounter.symptomOccurenceCountAndSorting();
+		analyticsCounter.countAndSortsymptoms();
 ```
 This method is used for calling the functions from different classes to perform the computations and deliver the results into a TreeMap for having a sorted result
 
 #### Method for sending results to output file
 ```java
-		analyticsCounter.sendResultToOutputFile();
+		analyticsCounter.printReportFile();
 ```
 The sorted results are delivered into the output file specified in the file definition in the initial phase
 
@@ -53,37 +53,37 @@ The sorted results are delivered into the output file specified in the file defi
 ###  AnalyticsCounter Class coordinates with the other classes as below:
 1. Definition of ArrayList and TreeMap for loading the input source data accessible for computation and render proper structured output:
 ```java
-		List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
-		Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
+		List<String> getListedSymptoms = new ArrayList<String>();
+		Map<String, Integer> readSymptomsToMap = new TreeMap<String, Integer>();
 ```		
 	Using above ArrayList and TreeMap we load the data containing the list of symptoms that will be gathered from the input source file.
 
 2. Defining an input file for data source and output file for the result data output destination
 ```java
 		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
-				FileInputAndOutputSourceDefinition.getDataInputFileName());
+				FileInputAndOutputSourceDefinition.defineInputFile());
 ```
-	opens an instance of ReadSymptomDataFromFile, fetches the input data file through the function FileInputAndOutputSourceDefinition.getDataInputFileName()
+	opens an instance of ReadSymptomDataFromFile, fetches the input data file through the function FileInputAndOutputSourceDefinition.defineInputFile()
 	
 	
 3. Fetch the information on the source file and read the data from the input file:	
 ```java		
-		listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
+			getListedSymptoms = readSymptomDataFromFile.getSymptoms();
 ```
 	gathers information on list of occurence of symptoms provided in the input data
 
 
 4.  Computation of the Frequency of occurence of the symptoms:
 ```java			
-		loadingSymptomsIntoMap = ComputingSymptomsAnalytics.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
+			readSymptomsToMap = ComputingSymptomsAnalytics.sortSymptomCount(getListedSymptoms);
 ```
-	Here the computation analytics is performed using the function sortedSymptomOccurenceFrequencyData() with listed data as input parameter.
+	Here the computation analytics is performed using the function sortSymptomCount() with listed data as input parameter.
 	
 5. Generating the report and publishing results into a output file defined:	
 ```java			
-		GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
+		GenerateOutputReportFile.printResults(readSymptomsToMap);
 ```
-	calls the function generateOutputResults() supplying the parameters loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData, which are the output of Computation Analytics object.
+	calls the function printReportFile() supplying the parameter readSymptomsToMap,  - the output of Computation Analytics object.
  
 ## More Info
 More information and and details on this project please contact at https://openclassrooms.com/
