@@ -6,29 +6,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
- * ReadSymptomDataFromFile class implements the ISymptomReader interface
- * and is used to read the symptom data listing in the input source file 
- * and load it into a List string array 
+ * ReadSymptomDataFromFile class implements the ISymptomReader interface and is
+ * used to read the symptom data listing in the input source file and load it
+ * into a List string array
+ * 
  * @author Senthil
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
-	
+
 	/**
 	 * ReadSymptomDataFromFile() class get filepath as an input parameter
+	 * 
 	 * @param filepath
 	 */
 	public ReadSymptomDataFromFile(String filepath) {
 		this.filepath = filepath;
 	}
-	
-		
+
 	/**
 	 * The getFilepath() String is set to get the input filename
+	 * 
 	 * @return
 	 */
 	public String getFilepath() {
@@ -36,22 +37,21 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 
 	/**
-	 * setFilepath() receives the parameter filepath and sets for access to called methods
+	 * setFilepath() receives the parameter filepath and sets for access to called
+	 * methods
+	 * 
 	 * @param filepath
 	 */
 	public void setFilepath(String filepath) {
 		this.filepath = filepath;
 	}
 
-
-
-
-
 	/**
-	 * getSymptoms() function loads the symptoms listed in input source file
-	 * and is accessible in the program calling the function referencing 
+	 * getSymptoms() function loads the symptoms listed in input source file and is
+	 * accessible in the program calling the function referencing
 	 * ReadSymptomDataFromFile class
-	 * @return result  The ArrayList is returned by the function on calling
+	 * 
+	 * @return result The ArrayList is returned by the function on calling
 	 */
 
 	@Override
