@@ -6,46 +6,70 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * AnalyticsCounter Class that coordinates the functions from different classes
+ * in a centralized manner
+ * 
+ * @class FileInputAndOutputSourceDefinition Class - Stores and provides the
+ *        input and output file definition
+ * 
+ * @class ReadSymptomDataFromFile Class - Reads and loads the input data on
+ *        symptoms into ArrayList
+ * 
+ * @class ISymptomReader Interface Class - Interface file for data loading
+ *        structure
+ * 
+ * @class ComputingSymptomsAnalytics Class - Performs computation of the count
+ *        of occurrences of the symptoms listed
+ * 
+ * @class GenerateOutputReportFile Class - Generates the output file with count
+ *        of occurrences corresponding to the symptoms listed
+ * 
+ * 
+ * @author Senthil
+ *
+ */
 public class AnalyticsCounter {
 
-	static List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
+	private List<String> getListedSymptoms = new ArrayList<String>();
 
-	static Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
+	private Map<String, Integer> readSymptomsToMap = new TreeMap<String, Integer>();
 
 	/**
 	 * readInputFile() calls the functions that reads the source input file and
 	 * loads the symptoms into array list
 	 */
-	public static void readInputFile() {
+	public void readInputFile() {
 		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
-				FileInputAndOutputSourceDefinition.getDataInputFileName());
-		listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
-	}
-
-	/**
-	 * symptomOccurenceCount() used to call the functions for calculating the
-	 * symptoms occurrence frequency and sorting them into TreeMap to provide sorted
-	 * results of the symptoms and its counts
-	 */
-	public static void symptomOccurenceCountAndSorting() {
+				FileInputAndOutputSourceDefinition.defineInputFile());
 		try {
-			loadingSymptomsIntoMap = ComputingSymptomsAnalytics
-					.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
+			getListedSymptoms = readSymptomDataFromFile.getSymptoms();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * sendResultToOutputFile() used to call the functions to that sends the count
+	 * countAndSortsymptoms() used to call the functions for calculating the
+	 * symptoms occurrence frequency and sorting them into TreeMap to provide sorted
+	 * results of the symptoms and its counts
+	 */
+	public void countAndSortsymptoms() {
+		try {
+			readSymptomsToMap = ComputingSymptomsAnalytics.sortSymptomCount(getListedSymptoms);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * printReportFile() used to call the functions to write the count
 	 * frequency computed to output file
 	 */
-	public static void sendResultToOutputFile() {
+	public void printReportFile() {
 		try {
-			GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
+			GenerateOutputReportFile.printResults(readSymptomsToMap);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
