@@ -52,28 +52,31 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * ReadSymptomDataFromFile class
 	 * 
 	 * @return result The ArrayList is returned by the function on calling
+	 * @throws IOException 
 	 */
 
-	@Override
-	public List<String> getSymptoms() {
+	public List<String> getSymptoms() throws IOException {
 		ArrayList<String> result = new ArrayList<String>();
 
 		if (filepath != null) {
+			BufferedReader reader = null;
 			try {
-				BufferedReader reader = new BufferedReader(new FileReader(filepath));
+				reader = new BufferedReader(new FileReader(filepath));
 				String line = reader.readLine();
 
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
 				}
-				reader.close();
+				
 			} catch (IOException e) {
 				e.printStackTrace();
+			} finally {
+				if (filepath == null) {
+					reader.close();
+				}
 			}
 		}
-
 		return result;
 	}
-
 }

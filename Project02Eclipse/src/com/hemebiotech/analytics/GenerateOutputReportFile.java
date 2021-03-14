@@ -2,7 +2,6 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,13 +19,35 @@ public class GenerateOutputReportFile {
 	 * @throws IOException
 	 */
 
-	static void printResults(Map<String, Integer> countSymptomsOccurence, List<String> symptoms)
+	static void printResults(Map<String, Integer> countSymptomsOccurence)
 			throws IOException {
-		FileWriter writer = new FileWriter(FileInputAndOutputSourceDefinition.defineOutputFile());
+		FileWriter writer = null;  
+		try {
+			writer = new FileWriter(FileInputAndOutputSourceDefinition.defineOutputFile());
+
 		for (String symptomList : countSymptomsOccurence.keySet()) {
-			System.out.println(symptomList + "(" + countSymptomsOccurence.get(symptomList) + ") ");
-			writer.write(symptomList + "(" + countSymptomsOccurence.get(symptomList) + ") " + "\n");
+			System.out.println(capitalizeFirstLetter(symptomList) + "(" + countSymptomsOccurence.get(symptomList) + ") ");
+			writer.write(capitalizeFirstLetter(symptomList) + "(" + countSymptomsOccurence.get(symptomList) + ") " + "\n");
 		}
-		writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			writer.close();  
+		}
+
+
 	}
+
+	/**
+	 * capitalizeFirstLetter() - symptomList value is taken to convert the first letter to uppercase
+	 * @param symptomList
+	 * @return the formated symptom value from the list after uppercasing the first letter
+	 */
+	private static String capitalizeFirstLetter(String symptomList) {
+	    if (symptomList == null || symptomList.length() == 0) {
+	        return symptomList;
+	    }
+	    return symptomList.substring(0, 1).toUpperCase() + symptomList.substring(1);
+	}
+	
 }

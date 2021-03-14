@@ -19,7 +19,11 @@ public class AnalyticsCounter {
 	public static void readInputFile() {
 		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
 				FileInputAndOutputSourceDefinition.defineInputFile());
-		getListedSymptoms = readSymptomDataFromFile.getSymptoms();
+		try {
+			getListedSymptoms = readSymptomDataFromFile.getSymptoms();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -42,7 +46,7 @@ public class AnalyticsCounter {
 	 */
 	public static void printReportFile() {
 		try {
-			GenerateOutputReportFile.printResults(readSymptomsToMap, getListedSymptoms);
+			GenerateOutputReportFile.printResults(readSymptomsToMap);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
