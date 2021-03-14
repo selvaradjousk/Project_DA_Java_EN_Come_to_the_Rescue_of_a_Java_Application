@@ -52,7 +52,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * ReadSymptomDataFromFile class
 	 * 
 	 * @return result The ArrayList is returned by the function on calling
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 
 	public List<String> getSymptoms() throws IOException {
@@ -68,7 +68,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					result.add(line);
 					line = reader.readLine();
 				}
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			} finally {
