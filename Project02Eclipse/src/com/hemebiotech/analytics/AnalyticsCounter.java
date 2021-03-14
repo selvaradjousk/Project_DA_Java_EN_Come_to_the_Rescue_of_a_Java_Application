@@ -20,10 +20,10 @@ import java.util.TreeMap;
  *        structure
  * 
  * @class ComputingSymptomsAnalytics Class - Performs computation of the count
- *        of occurences of the symptoms listed
+ *        of occurrences of the symptoms listed
  * 
  * @class GenerateOutputReportFile Class - Generates the output file with count
- *        of occurences corresponding to the symptoms listed
+ *        of occurrences corresponding to the symptoms listed
  * 
  * 
  * @author Senthil
@@ -50,7 +50,7 @@ public class AnalyticsCounter {
 	}
 
 	/**
-	 * symptomOccurenceCount() used to call the functions for calculating the
+	 * countAndSortsymptoms() used to call the functions for calculating the
 	 * symptoms occurrence frequency and sorting them into TreeMap to provide sorted
 	 * results of the symptoms and its counts
 	 */
@@ -63,7 +63,7 @@ public class AnalyticsCounter {
 	}
 
 	/**
-	 * sendResultToOutputFile() used to call the functions to write the count
+	 * printReportFile() used to call the functions to write the count
 	 * frequency computed to output file
 	 */
 	public void printReportFile() {

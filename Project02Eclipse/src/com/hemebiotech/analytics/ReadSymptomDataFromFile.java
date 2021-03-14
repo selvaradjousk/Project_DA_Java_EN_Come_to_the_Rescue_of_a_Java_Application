@@ -30,7 +30,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	/**
 	 * The getFilepath() String is set to get the input filename
 	 * 
-	 * @return
+	 * @return filepath
 	 */
 	public String getFilepath() {
 		return filepath;

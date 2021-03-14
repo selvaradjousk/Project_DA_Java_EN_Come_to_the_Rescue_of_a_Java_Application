@@ -15,7 +15,7 @@ import java.util.TreeMap;
  *
  */
 public class ComputingSymptomsAnalytics {
-	// ********* Create a method for computation********
+
 	/**
 	 * sortedSymptomOccurenceFrequencyData() is used to gather input from symptoms
 	 * List<String> and compute the symptoms occurrence frequency for Trend analysis

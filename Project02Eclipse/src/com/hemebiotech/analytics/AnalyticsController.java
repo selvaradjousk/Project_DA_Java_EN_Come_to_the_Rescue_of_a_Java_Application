@@ -3,7 +3,7 @@ package com.hemebiotech.analytics;
 /**
  * AnalyticsController is the main Class for the "Heme Biotech - Trend Analysis
  * Java App" This contains the AnalyticsCounter Class that coordinates the
- * functions from different classes in a centralized manner cordinating the
+ * functions from different classes in a centralized manner coordinating the
  * classes with different functions in FileInputAndOutputSourceDefinition Class,
  * ReadSymptomDataFromFile Class, ISymptomReader Interface Class,
  * ComputingSymptomsAnalytics Class, GenerateOutputReportFile Class
