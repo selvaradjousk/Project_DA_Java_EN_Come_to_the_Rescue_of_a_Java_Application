@@ -23,21 +23,21 @@ public class ComputingSymptomsAnalytics {
 	 * @throws IOException
 	 */
 
-	public static Map<String, Integer> sortedSymptomOccurenceFrequencyData(List<String> symptoms) throws IOException {
-		Map<String, Integer> computingSymptomsOccurenceFrequency = new TreeMap<String, Integer>();
+	public static Map<String, Integer> sortSymptomCount(List<String> symptoms) throws IOException {
+		Map<String, Integer> countSymptomFrequency = new TreeMap<String, Integer>();
 
 		if (symptoms != null) {
 			for (String symptomList : symptoms) {
-				if (!computingSymptomsOccurenceFrequency.containsKey(symptomList)) {
-					computingSymptomsOccurenceFrequency.put(symptomList, 1);
+				if (!countSymptomFrequency.containsKey(symptomList)) {
+					countSymptomFrequency.put(symptomList, 1);
 				} else {
-					int count = computingSymptomsOccurenceFrequency.get(symptomList);
-					computingSymptomsOccurenceFrequency.put(symptomList, count + 1);
+					int count = countSymptomFrequency.get(symptomList);
+					countSymptomFrequency.put(symptomList, count + 1);
 				}
 			}
 
 		}
-		return computingSymptomsOccurenceFrequency;
+		return countSymptomFrequency;
 	}
 
 }

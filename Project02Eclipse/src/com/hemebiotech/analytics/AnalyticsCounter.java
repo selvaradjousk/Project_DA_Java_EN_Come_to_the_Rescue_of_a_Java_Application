@@ -8,9 +8,9 @@ import java.util.TreeMap;
 
 public class AnalyticsCounter {
 
-	static List<String> listedSymptomOccurenceInSourceData = new ArrayList<String>();
+	static List<String> getListedSymptoms = new ArrayList<String>();
 
-	static Map<String, Integer> loadingSymptomsIntoMap = new TreeMap<String, Integer>();
+	static Map<String, Integer> readSymptomsToMap = new TreeMap<String, Integer>();
 
 	/**
 	 * readInputFile() calls the functions that reads the source input file and
@@ -18,8 +18,8 @@ public class AnalyticsCounter {
 	 */
 	public static void readInputFile() {
 		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
-				FileInputAndOutputSourceDefinition.getDataInputFileName());
-		listedSymptomOccurenceInSourceData = readSymptomDataFromFile.getSymptoms();
+				FileInputAndOutputSourceDefinition.defineInputFile());
+		getListedSymptoms = readSymptomDataFromFile.getSymptoms();
 	}
 
 	/**
@@ -27,12 +27,11 @@ public class AnalyticsCounter {
 	 * symptoms occurrence frequency and sorting them into TreeMap to provide sorted
 	 * results of the symptoms and its counts
 	 */
-	public static void symptomOccurenceCountAndSorting() {
+	public static void countAndSortsymptoms() {
 		try {
-			loadingSymptomsIntoMap = ComputingSymptomsAnalytics
-					.sortedSymptomOccurenceFrequencyData(listedSymptomOccurenceInSourceData);
+			readSymptomsToMap = ComputingSymptomsAnalytics
+					.sortSymptomCount(getListedSymptoms);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -41,11 +40,10 @@ public class AnalyticsCounter {
 	 * sendResultToOutputFile() used to call the functions to that sends the count
 	 * frequency computed to output file
 	 */
-	public static void sendResultToOutputFile() {
+	public static void printReportFile() {
 		try {
-			GenerateOutputReportFile.generateOutputResults(loadingSymptomsIntoMap, listedSymptomOccurenceInSourceData);
+			GenerateOutputReportFile.printResults(readSymptomsToMap, getListedSymptoms);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

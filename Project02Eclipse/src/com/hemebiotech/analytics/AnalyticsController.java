@@ -33,8 +33,8 @@ public class AnalyticsController {
 	 * Main function of the AnalyticsController for the "Heme Biotech - Trend
 	 * Analysis Java App"
 	 * 
-	 * listedSymptomOccurenceInSourceData - ArrayList Definition
-	 * loadingSymptomsIntoMap - TreeMap definition readSymptomDataFromFile -
+	 * getListedSymptoms - ArrayList Definition
+	 * readSymptomsToMap - TreeMap definition readSymptomDataFromFile -
 	 * instance of ReadSymptomDataFromFile() function calling input parameter
 	 * FileInputAndOutputSourceDefinition.getDataInputFileName() into it
 	 * 
@@ -47,8 +47,8 @@ public class AnalyticsController {
 
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter();
 		analyticsCounter.readInputFile();
-		analyticsCounter.symptomOccurenceCountAndSorting();
-		analyticsCounter.sendResultToOutputFile();
+		analyticsCounter.countAndSortsymptoms();
+		analyticsCounter.printReportFile();
 
 	}
 

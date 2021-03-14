@@ -16,6 +16,17 @@ import java.util.List;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
+	private String filepath;
+	
+	/**
+	 * ReadSymptomDataFromFile() class get filepath as an input parameter
+	 * @param filepath
+	 */
+	public ReadSymptomDataFromFile(String filepath) {
+		this.filepath = filepath;
+	}
+	
+		
 	/**
 	 * The getFilepath() String is set to get the input filename
 	 * @return
@@ -32,15 +43,9 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		this.filepath = filepath;
 	}
 
-	private String filepath;
 
-	/**
-	 * ReadSymptomDataFromFile() class get filepath as an input parameter
-	 * @param filepath
-	 */
-	public ReadSymptomDataFromFile(String filepath) {
-		this.filepath = filepath;
-	}
+
+
 
 	/**
 	 * getSymptoms() function loads the symptoms listed in input source file
@@ -48,7 +53,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * ReadSymptomDataFromFile class
 	 * @return result  The ArrayList is returned by the function on calling
 	 */
-
 
 	@Override
 	public List<String> getSymptoms() {

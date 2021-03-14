@@ -12,20 +12,20 @@ package com.hemebiotech.analytics;
 public class FileInputAndOutputSourceDefinition {
 
 	/**
-	 * getDataOutputFileName() stores and returns the data output filename definition
-	 * @return sourceOutputDataFile
+	 * defineOutputFile() stores and returns the data output filename definition
+	 * @return outputFileName
 	 */
-	static String getDataOutputFileName() {
-		String sourceOutputDataFile = "result.out";
-		return sourceOutputDataFile;
+	static String defineOutputFile() {
+		String outputFileName = "result.out";
+		return outputFileName;
 	}
 
 	/**
-	 * getDataInputFileName()  stores and returns the data input filename definition
-	 * @return sourceInputDataFile
+	 * defineInputFile()  stores and returns the data input filename definition
+	 * @return inputFileName
 	 */
-	static String getDataInputFileName() {
-		String sourceInputDataFile = "symptoms.txt";
-		return sourceInputDataFile;
+	static String defineInputFile() {
+		String inputFileName = "symptoms.txt";
+		return inputFileName;
 	}
 }
