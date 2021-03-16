@@ -57,6 +57,15 @@ The sorted results are delivered into the output file specified in the file defi
 		Map<String, Integer> readSymptomsToMap = new TreeMap<String, Integer>();
 ```		
 	Using above ArrayList and TreeMap we load the data containing the list of symptoms that will be gathered from the input source file.
+	
+	Instantiation of the necessary classes (i.e. creating objects) for calling methods from other classes
+```java	
+	private FileInputAndOutputSourceDefinition inputOutputFile = new FileInputAndOutputSourceDefinition();
+	private GenerateOutputReportFile printOutputReportFile = new GenerateOutputReportFile();
+	private ComputingSymptomsAnalytics computingSymptomsAnalytics = new ComputingSymptomsAnalytics();
+	
+```	
+
 
 2. Defining an input file for data source and output file for the result data output destination
 ```java
@@ -75,13 +84,13 @@ The sorted results are delivered into the output file specified in the file defi
 
 4.  Computation of the Frequency of occurence of the symptoms:
 ```java			
-			readSymptomsToMap = ComputingSymptomsAnalytics.sortSymptomCount(getListedSymptoms);
+			readSymptomsToMap = computingSymptomsAnalytics.sortSymptomCount(getListedSymptoms);
 ```
 	Here the computation analytics is performed using the function sortSymptomCount() with listed data as input parameter.
 	
 5. Generating the report and publishing results into a output file defined:	
 ```java			
-		GenerateOutputReportFile.printResults(readSymptomsToMap);
+		printOutputReportFile.printResults(readSymptomsToMap);
 ```
 	calls the function printReportFile() supplying the parameter readSymptomsToMap,  - the output of Computation Analytics object.
  
@@ -94,6 +103,9 @@ More information and and details on this project please contact at https://openc
 ## License
 Openclassrooms
 
+## Version
+
+Latest version released V 7.0.0
 
 ## Support
 Please enter an issue in the repo for any questions or problems. 
