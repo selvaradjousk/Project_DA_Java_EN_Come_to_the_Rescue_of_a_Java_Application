@@ -35,8 +35,7 @@ public class AnalyticsCounter {
 	private Map<String, Integer> readSymptomsToMap = new TreeMap<String, Integer>();
 	private FileInputAndOutputSourceDefinition inputOutputFile = new FileInputAndOutputSourceDefinition();
 	private GenerateOutputReportFile printOutputReportFile = new GenerateOutputReportFile();
-	private ComputingSymptomsAnalytics computingSymptomsAnalytics = new ComputingSymptomsAnalytics();	
-	
+	private ComputingSymptomsAnalytics computingSymptomsAnalytics = new ComputingSymptomsAnalytics();
 
 	/**
 	 * readInputFile() calls the functions that reads the source input file and
@@ -66,8 +65,8 @@ public class AnalyticsCounter {
 	}
 
 	/**
-	 * printReportFile() used to call the functions to write the count
-	 * frequency computed to output file
+	 * printReportFile() used to call the functions to write the count frequency
+	 * computed to output file
 	 */
 	void printReportFile() {
 		try {
