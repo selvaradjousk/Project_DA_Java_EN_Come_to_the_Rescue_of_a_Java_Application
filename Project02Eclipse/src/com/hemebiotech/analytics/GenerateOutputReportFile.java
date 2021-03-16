@@ -12,6 +12,7 @@ import java.util.Map;
  *
  */
 public class GenerateOutputReportFile {
+	private FileInputAndOutputSourceDefinition inputOutputFile = new FileInputAndOutputSourceDefinition();
 
 	/**
 	 * printResults () method delivers the output results to the designated output
@@ -26,10 +27,10 @@ public class GenerateOutputReportFile {
 	 * @throws IOException
 	 */
 
-	static void printResults(Map<String, Integer> countSymptomsOccurence) throws IOException {
+	void printResults(Map<String, Integer> countSymptomsOccurence) throws IOException {
 		FileWriter writer = null;
 		try {
-			writer = new FileWriter(FileInputAndOutputSourceDefinition.defineOutputFile());
+			writer = new FileWriter(inputOutputFile.defineOutputFile());
 
 			for (String symptomList : countSymptomsOccurence.keySet()) {
 				System.out.println(
@@ -53,7 +54,7 @@ public class GenerateOutputReportFile {
 	 * @return the formated symptom value from the list after uppercasing the first
 	 *         letter
 	 */
-	private static String capitalizeFirstLetter(String symptomList) {
+	private String capitalizeFirstLetter(String symptomList) {
 		if (symptomList == null || symptomList.length() == 0) {
 			return symptomList;
 		}
