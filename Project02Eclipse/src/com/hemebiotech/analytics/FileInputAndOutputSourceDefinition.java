@@ -17,8 +17,8 @@ public class FileInputAndOutputSourceDefinition {
 	 * 
 	 * @return outputFileName
 	 */
-	static String defineOutputFile() {
-		String outputFileName = "result.out";
+	String defineOutputFile() {
+		final String outputFileName = "result.out";
 		return outputFileName;
 	}
 
@@ -27,8 +27,8 @@ public class FileInputAndOutputSourceDefinition {
 	 * 
 	 * @return inputFileName
 	 */
-	static String defineInputFile() {
-		String inputFileName = "symptoms.txt";
+	String defineInputFile() {
+		final String inputFileName = "symptoms.txt";
 		return inputFileName;
 	}
 }

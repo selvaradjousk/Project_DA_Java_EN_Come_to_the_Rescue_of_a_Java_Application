@@ -28,7 +28,7 @@ public class ComputingSymptomsAnalytics {
 	 * @throws IOException
 	 */
 
-	static Map<String, Integer> sortSymptomCount(List<String> symptoms) throws IOException {
+	Map<String, Integer> sortSymptomCount(List<String> symptoms) throws IOException {
 		Map<String, Integer> countSymptomFrequency = new TreeMap<String, Integer>();
 
 		if (symptoms != null) {
