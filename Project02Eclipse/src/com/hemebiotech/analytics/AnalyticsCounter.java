@@ -32,16 +32,19 @@ import java.util.TreeMap;
 public class AnalyticsCounter {
 
 	private List<String> getListedSymptoms = new ArrayList<String>();
-
 	private Map<String, Integer> readSymptomsToMap = new TreeMap<String, Integer>();
+	private FileInputAndOutputSourceDefinition inputOutputFile = new FileInputAndOutputSourceDefinition();
+	private GenerateOutputReportFile printOutputReportFile = new GenerateOutputReportFile();
+	private ComputingSymptomsAnalytics computingSymptomsAnalytics = new ComputingSymptomsAnalytics();	
+	
 
 	/**
 	 * readInputFile() calls the functions that reads the source input file and
 	 * loads the symptoms into array list
 	 */
-	public void readInputFile() {
+	void readInputFile() {
 		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(
-				FileInputAndOutputSourceDefinition.defineInputFile());
+				inputOutputFile.defineInputFile());
 		try {
 			getListedSymptoms = readSymptomDataFromFile.getSymptoms();
 		} catch (IOException e) {
@@ -54,9 +57,9 @@ public class AnalyticsCounter {
 	 * symptoms occurrence frequency and sorting them into TreeMap to provide sorted
 	 * results of the symptoms and its counts
 	 */
-	public void countAndSortsymptoms() {
+	void countAndSortsymptoms() {
 		try {
-			readSymptomsToMap = ComputingSymptomsAnalytics.sortSymptomCount(getListedSymptoms);
+			readSymptomsToMap = computingSymptomsAnalytics.sortSymptomCount(getListedSymptoms);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -66,9 +69,9 @@ public class AnalyticsCounter {
 	 * printReportFile() used to call the functions to write the count
 	 * frequency computed to output file
 	 */
-	public void printReportFile() {
+	void printReportFile() {
 		try {
-			GenerateOutputReportFile.printResults(readSymptomsToMap);
+			printOutputReportFile.printResults(readSymptomsToMap);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
